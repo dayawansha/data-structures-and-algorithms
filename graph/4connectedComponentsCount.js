@@ -13,9 +13,9 @@ const connectedComponentsCount = (graph) => {
   
   
   const explore = (graph, current, visited) => {
-    if (visited.has(String(current))) return false;
+    if (visited.has((current))) return false;
         
-    visited.add(String(current));
+    visited.add((current));
     
     for (let neighbor of graph[current]) {
       explore(graph, neighbor, visited);

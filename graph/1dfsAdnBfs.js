@@ -46,6 +46,11 @@ const stack = [source];
 };
 const bfsLoop = (graph, source) => {
     const queue = [source];
+
+    console.log("graph",graph);
+    console.log("queue",queue);
+    console.log("queue.length",queue.length);
+
      while (queue.length > 0){
         //method removes the first item of an array.
         const current = queue.shift();
@@ -63,8 +68,8 @@ const bfsLoop = (graph, source) => {
 // dfsLoop(graphStack, 'a');
 
 // console.log("bfsLoop= abcde");
-// bfsLoop(graphQueue, 'a');
+bfsLoop(graphQueue, 'a');
 
 
-console.log("recursevs");
-dfsRecursive(graphQueue, 'a');
+// console.log("recursevs");
+// dfsRecursive(graphQueue, 'a');
