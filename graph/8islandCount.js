@@ -17,13 +17,12 @@ const isIsland = (grid, i , j , visited)=> {
     if(! ((0 <= i) && (i < grid.length)) ) return false;
     if(! ((0 <= j) && (j < grid[0].length)) ) return false;
     
- 
     if(grid[i][j] === "0")return false;
     
     const poss = i + ',' + j;
     if (visited.has(poss)) return false ;
     visited.add(poss);
-     
+           
        
     isIsland (grid, i -1, j,visited); 
     isIsland (grid, i + 1, j,visited); 
