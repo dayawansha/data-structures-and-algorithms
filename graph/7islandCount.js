@@ -23,12 +23,18 @@ const isIsland = (grid, i , j , visited)=> {
     if (visited.has(poss)) return false ;
     visited.add(poss);
            
-       
     isIsland (grid, i -1, j,visited); 
     isIsland (grid, i + 1, j,visited); 
     isIsland (grid, i, j-1,visited); 
     isIsland (grid, i, j+1,visited); 
      
-    return true;
-      
+    return true;    
   }
+
+  grid2 = [
+    ["1","1","1","1","0"],
+    ["1","1","0","1","0"],
+    ["1","1","0","0","0"],
+    ["0","0","0","0","0"]
+  ]
+  numIslands(grid2);
