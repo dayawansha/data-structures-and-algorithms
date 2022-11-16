@@ -1,3 +1,19 @@
+const edges = [
+  ['w', 'x'],
+  ['x', 'y'],
+  ['z', 'y'],
+  ['z', 'v'],
+  ['w', 'v']
+];
+
+graph ={ 
+  w: [ 'x', 'v' ], 
+  x: [ 'w', 'y' ], 
+  y: [ 'x', 'z' ], 
+  z: [ 'y', 'v' ], 
+  v: [ 'z', 'w' ] 
+} 
+
 const buildGraph = (edges) => {
   const graph = {};
   
@@ -13,24 +29,18 @@ const buildGraph = (edges) => {
   return graph;
 }; 
 
-
-const edges = [
-  ['w', 'x'],
-  ['x', 'y'],
-  ['z', 'y'],
-  ['z', 'v'],
-  ['w', 'v']
-];
 const shortestPath = (edges, nodeA, nodeB) => {
+  
     const graph = buildGraph(edges);
-    console.log("graph",graph);
     const visited = new Set([ nodeA ]);
     const queue = [[ nodeA, 0 ]];
     
     while (queue.length > 0) {
       const [ node, distance ] = queue.shift();
       
-      if (node === nodeB) return distance;
+      if (node === nodeB) {
+        return distance;
+      };
       console.log("queue",queue);
       
       for (let neighbor of graph[node]) {

@@ -47,9 +47,9 @@ const stack = [source];
 const bfsLoop = (graph, source) => {
     const queue = [source];
 
-    console.log("graph",graph);
-    console.log("queue",queue);
-    console.log("queue.length",queue.length);
+    // console.log("graph",graph);
+    // console.log("queue",queue);
+    // console.log("queue.length",queue.length);
 
      while (queue.length > 0){
         //method removes the first item of an array.

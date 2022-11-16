@@ -1,3 +1,6 @@
+/// this is a matrix, you can't traverse like a graph, as usual
+/// when you deal with matrix, you have to tra
+
 var numIslands = (grid) =>{
     let count = 0;       
     const visited = new Set(); 
@@ -37,4 +40,52 @@ const isIsland = (grid, i , j , visited)=> {
     ["1","1","0","0","0"],
     ["0","0","0","0","0"]
   ]
-  numIslands(grid2);
+  console.log("aaa",numIslands(grid2));
+
+
+  ///////////your version///////////////
+
+  const islandCount = (grid) => {
+    const visited = new Set();
+    let total = 0;
+  
+    for(let x = 0; x < grid.length; x++){
+       for(let y = 0; y < grid[0].length; y++){
+  
+         if((grid[x][y])==='L'){
+          total += counter(grid, x,y,visited);
+         }
+          
+       }    
+    }
+     return total;
+  }
+  
+  const counter = (grid, x,y,visited) => {
+    if(! ((0 <= x) && (x < grid.length)) ) return 0;
+    if(! ((0 <= y) && (y < grid[0].length)) ) return 0;
+    
+    if((grid[x][y])==='W') return 0;
+    
+    let key = x + ',' + y;
+    if(visited.has(key)) return 0;
+    visited.add(key);
+  
+    counter(grid, x-1,y,visited);
+    counter(grid, x+1,y,visited);
+    counter(grid, x,y-1,visited);
+    counter(grid, x,y+1,visited);
+    
+    return 1;
+  }
+  
+  const grid = [
+    ['W', 'L', 'W', 'W', 'W'],
+    ['W', 'L', 'W', 'W', 'W'],
+    ['W', 'W', 'W', 'L', 'W'],
+    ['W', 'W', 'L', 'L', 'W'],
+    ['L', 'W', 'W', 'L', 'L'],
+    ['L', 'L', 'W', 'W', 'W'],
+  ];
+  
+  console.log("count",islandCount(grid)); // -> 3
